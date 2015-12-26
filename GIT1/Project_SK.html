@@ -1,0 +1,253 @@
+<html>
+ <head>
+    <title>  CPP  </title>
+	<a 
+		href="Project_SK.html">
+			Home
+		</a>
+		 &nbsp;
+		<a 
+		href="Project_SK(1).html">
+			About me 
+		</a>
+	<!---IMPORT BOOTSTRAP ---->
+	<link rel="stylesheet"
+	      type="text/css"
+		  href="bootstrap.css"
+		  />
+	<!---IMPORT OUR OWN STYLESHEET---->	  
+	<link rel="stylesheet"
+          type="text/css"
+          href="styles.css"
+          />
+	<h1>C++  (MOTHER OF ALL LANGUAGES)</h1>	 
+    <hr></hr>	
+	<!-- IMPORT JQUERY -->
+		<script src="http://code.jquery.com/jquery-1.11.3.min.js"></script>		
+	</head>
+	<body>
+	   <div class="container"
+	   <!-- 
+			 we have 1 row that contains 2 columns
+		     one for the thumbnails and one for the 
+		     main reader view
+		-->
+		<div class="row">
+			<div class="col-md-3">
+				<!-- 
+					This is a list view that will 
+					contain all the chapter thumbnails
+				-->
+				<ul class="list-group scrollable" id="chapterlist">
+					<!--
+						The id contains the chapter number, something 
+						we will use in the JS code
+						The class list-group-item is for bootstrap
+						and chapter-thumbnail is for our code
+					-->
+            		<li id="chapter0" 
+            		   class="list-group-item chapter-thumbnail"> C++ HISTORY
+					   BY:-SARATH KAUL
+					   </li>
+					   <li id="chapter1" class="list-group-item chapter-thumbnail">HISTORY
+ Bjarne Stroustrup, 
+ a Danish computer scientist,
+ began his work on C++'s 
+ predecessor "C with Classes"
+ in 1979. The motivation for
+ creating a new language 
+ originated from Stroustrup's 
+ experience in programming for
+ his Ph.D. thesis. Stroustrup 
+ found that Simula had features 
+ that were very helpful for large
+ software development,but the
+ language was too slow for 
+ practical use, while BCPL was
+ fast but too low-level to be
+ suitable for large software
+ development.When Stroustrup
+ started working in AT&T Bell 
+ Labs, he had the problem of
+ analyzing the UNIX kernel with
+ respect to distributed computing.
+ Remembering his Ph.D. experience,
+ Stroustrup set out to enhance the
+ C language with Simula-like features.
+ C was chosen because it was 
+ general-purpose, fast, portable 
+ and widely used. As well as C and 
+ Simula's influences,other languages
+ also influenced C++,including 
+ ALGOL 68, Ada, CLU and ML.
+ Initially, the class, derived class,
+ strong typing, inlining and default
+ argument features were added to C 
+ via Stroustrup's "C with Classes" 
+ to C compiler, Cpre.
+ In 1983, it was renamed from C with
+ Classes to C++ ("++" being the 
+ increment operator in C). New 
+ features were added including virtual 
+ functions, function name and operator
+ overloading, references, constants, 
+ type-safe free-store memory allocation
+ (new/delete), improved type checking, 
+ and BCPL style single-line comments 
+ with two forward slashes (//), as 
+ well as the development of a proper
+ compiler for C++, Cfront.
+ In 1985, the first edition of The
+ C++ Programming Language was released,
+ which became the definitive reference 
+ for the language, as there was not yet
+ an official standard.The first 
+ commercial implementation of C++ was
+ released in October of the same year.
+ In 1989, C++ 2.0 was released, 
+ followed by the updated second edition
+ of The C++ Programming Language in 1991.
+ New features in 2.0 included multiple 
+ inheritance, abstract classes, 
+ static member functions, const member 
+ functions, and protected members. 
+ In 1990, The Annotated C++ Reference 
+ Manual was published. This work became 
+ the basis for the future standard. 
+ Later feature additions included 
+ templates, exceptions, namespaces, 
+ new casts, and a boolean type.
+ After the 2.0 update, C++ evolved 
+ relatively slowly until, in 2011, 
+ the C++11 standard was released, 
+ adding numerous new features, enlarging
+ the standard library further, and 
+ providing more facilities to C++
+ programmers. After a minor C++14 update,
+ released in December 2014, various new 
+ additions are planned for 2017.
+					   </li>
+					   </ul>
+					   </div>
+
+          	<!-- 
+				This contains the main reader view 
+				that will show the whole chapter. 
+				It is currently empty because we will 
+				fill in using JavaScript
+          	-->
+			<div class="col-md-9">
+				<!--
+					well is a bootstrap class for creating 
+					a nice container box
+					The id, mainViewer is for our use
+				-->
+				<div class="well" id="mainViewer" >
+				</div>
+			</div>
+			
+		</div>
+		
+	</div>
+	<script>
+		// this is a variable to keep track
+		// of which chapter we are on
+		var counter = 0;
+
+		// when we click on a chapter thumbnail
+		// it displays that chapter
+		$(".chapter-thumbnail").click(function(){
+			// copy the html from the thumbnail (this)
+			// to the main viwer
+			$("#mainViewer").html( 
+				$(this).html());
+
+			// get the id of this element so we can
+			// get hold of its number
+			var id = $(this).attr("id");
+
+			// set the counter to the number of the 
+			// chapter we selected. 
+			// We get this by taking the last charcter
+			// of the id and convert it to a number
+			// id.slice gets a subsection of the string
+			// passing in -1 means we get just the
+			// last character
+			// parseInt converts it to a number (integer)
+			counter = parseInt(id.slice(-1));
+		});
+
+		// virtually click the first chapter to select it
+		$("#chapter"+counter).click();
+
+		// when we click on the main viewer we want to 
+		// move forward or backward in the 
+		// chapter
+		// when we click on the main viewer we want to 
+		// move forward or backward in the 
+		// chapter
+		$("#mainViewer").click(function (event){
+			
+			// move forward if we click to the right 
+			// or backward if we click to the left
+
+			// event.offsetX is the horizontal
+			// position of the mouse inside the 
+			// element we have clicked on, 
+			// it will be between 0 
+			// and the width of the element
+
+			// $(this).width()*0.3 is 30% of
+			// the with of the element
+
+			// if event.offsetX is less than
+			// 30% of the width, it means it is
+			// on the left hand side
+			if(event.offsetX 
+				< $(this).width()*0.3){
+				// if we've clicked on the left
+				// go back
+				counter = counter - 1;
+			} else {
+				// if we've clicked on the right
+				// go forwards
+				counter = counter + 1;
+			}
+
+			// If we've gone below 0 it means
+			// we were at the beginning, and 
+			// should just stay at zero
+			if(counter < 0){
+				counter =  0;
+			}
+
+			// $(".chapter-thumbnail").length
+			// is the number of elements that 
+			// match the selector .chapter-thumbnail
+			// i.e. the number of chapter thumbnails
+			// if counter is equal to or more than
+			// the number of thumbnails it means 
+			// we've gone past the last chapter which
+			// is $(".chapter-thumbnail").length-1
+			// (because we start counting at 0)
+			if(counter >= 
+				$(".chapter-thumbnail").length){
+				counter = 
+			$(".chapter-thumbnail").length-1;
+			}
+			
+			// we get the id of the chapter thumbnail
+			// we want by putting counter on the end
+			// of it. 
+			// we can do a virtual click on the 
+			// chapter thumbnail to select it
+			$("#chapter"+counter).click();
+		});
+
+
+	</script>
+
+	</body>
+</html>
+
+  </html>

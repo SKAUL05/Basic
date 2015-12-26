@@ -1,0 +1,83 @@
+@media (min-width:0px){
+	h1{
+		background:66FF66;
+	color:990000;
+	font-family:"Arial" monospace;
+	font-size:20px;
+	text-align:center;
+	text-shadow:1px 1px #ff0000
+	}
+	body{
+	background:66FF66;
+	color:990000;
+	font-family:"Arial" monospace;
+	font-size:10px;
+        }
+}
+@media (min-width:500px){
+	h1{background:66FF99;
+	color:990033;
+	font-family:"Lucida Console" serif;
+	font-size:30px;
+	text-align:center;
+	text-shadow:1px 1px #ff0000}
+	body{
+	background:66FF99;
+	color:990033;
+	font-family:"Lucida Console" serif;
+	font-size:15px;
+        }
+}
+@media (min-width:1000px){
+	h1{
+		background:66FFCC;
+	color:990066;
+	font-family:"Comic Sans MS" sans-serif;
+	font-size:40px;
+	text-align:center;
+	text-shadow:2px 2px #ff0000
+	}
+	body{
+	background:66FFCC;
+	color:990066;
+	font-family:"Comic Sans MS" sans-serif;
+	font-size:20px;
+    
+        }
+}
+/* 
+   This is the css for the chapter thumbnails
+   They are small boxes that show the first
+   few lines of a chapter. 
+   There are several bits of css to make sure that they 
+   properly.
+*/ 
+.chapter-thumbnail {
+  margin-top: 10px;   /* add a margin to look nice */
+  white-space : pre;  /* preserve the original line breaks and spacing
+  						 (I need this because the content of the 
+  						 chapter is just text not HTML, so normally
+  						 the line breaks would be ignored) */
+  overflow : hidden;  /* don't show a scroll bar when the text is
+                         too big to fit in the box (which it always 
+                         will be but we don't mind as it is just a 
+                         thumbnail) */
+  height : 350px;     /* even if the text is big */
+  border-radius: 10px;/* rounded corners */ 
+}
+
+#mainViewer {
+  margin-top: 10px;   
+  white-space : pre;   /* preserve the original line breaks (see above)*/
+}
+/* use this to put borders around things... */
+.crop-img{
+  max-height:150px;
+  max-width:100%;
+  margin-bottom: 10px;
+}
+
+.large-img{
+  max-width:5s0%;
+  margin-top: 10px;
+}
